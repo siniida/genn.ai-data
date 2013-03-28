@@ -1,0 +1,3 @@
+create 'group', {NAME => 'master'}
+create 'site', {NAME => 'master'}
+create 'condition', {NAME => 'master'}, {NAME => 'user'}, {NAME => 'template'}

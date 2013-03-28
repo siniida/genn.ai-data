@@ -1,0 +1,161 @@
+#---------- master:title ----------
+put 'condition', 'guess',                    'master:title', '推測'
+put 'condition', 'guess:area',               'master:title', '興味のあるエリア'
+put 'condition', 'guess:area:region',        'master:title', '(推測) エリア選択'
+put 'condition', 'guess:care',               'master:title', 'こだわり'
+put 'condition', 'guess:care:breakfast',     'master:title', '朝食'
+put 'condition', 'guess:care:breakfast:acl', 'master:title', '(実績) 朝食こだわり'
+put 'condition', 'guess:care:breakfast:pre', 'master:title', '(推測) 朝食こだわり'
+put 'condition', 'guess:idea',               'master:title', '趣味・趣向'
+put 'condition', 'guess:idea:highclass',     'master:title', '(推測)高級趣向'
+put 'condition', 'guess:idea:meal',          'master:title', '(推測)プライベート食事趣向'
+put 'condition', 'guess:idea:onsen',         'master:title', '(推測)温泉好き'
+put 'condition', 'guess:idea:sports',        'master:title', '(推測)スポーツ好き'
+put 'condition', 'now',                      'master:title', '直近の行動'
+put 'condition', 'now:do',                   'master:title', '行動'
+put 'condition', 'now:do:clip',              'master:title', '(直近行動) クリップ'
+put 'condition', 'now:do:voice',             'master:title', '(直近行動) クチコミ投稿'
+put 'condition', 'now:search',               'master:title', '検索'
+put 'condition', 'now:search:area',          'master:title', 'エリア'
+put 'condition', 'now:search:area:region',   'master:title', '(直近検索) エリア選択'
+put 'condition', 'now:search:care',          'master:title', '(直近検索) こだわり'
+put 'condition', 'now:search:date',          'master:title', '(直近検索) 日付'
+put 'condition', 'now:search:meal',          'master:title', '(直近検索) 食事タイプ'
+put 'condition', 'now:search:room',          'master:title', '(直近検索) 部屋タイプ'
+put 'condition', 'now:search:staycount',     'master:title', '(直近検索) 宿泊数'
+put 'condition', 'now:search:yado',          'master:title', '(直近検索) 宿タイプ'
+put 'condition', 'now:view',                 'master:title', '閲覧'
+put 'condition', 'now:view:area',            'master:title', '同エリア一覧ページ'
+put 'condition', 'now:view:yado',            'master:title', 'ホテル関連ページ'
+put 'condition', 'old',                      'master:title', '過去の行動'
+put 'condition', 'old:history',              'master:title', '宿泊履歴'
+put 'condition', 'old:history:selfarea',     'master:title', '(宿泊履歴)同エリア'
+put 'condition', 'test',                     'master:title', 'テスト用'
+put 'condition', 'test:a',                   'master:title', '1アクション(V002)'
+put 'condition', 'test:b',                   'master:title', '2アクションOR(V002/V003)'
+put 'condition', 'test:c',                   'master:title', '$in句'
+put 'condition', 'test:d',                   'master:title', '$join句'
+put 'condition', 'test:e',                   'master:title', '#count'
+put 'condition', 'test:f',                   'master:title', '#count & $join'
+
+
+#---------- items ----------
+#---------- guess:area:region ----------
+put 'condition', 'guess:area:region', 'master:description', 'エリア単位で選択'
+put 'condition', 'guess:area:region', 'master:type', 'checkbox'
+put 'condition', 'guess:area:region', 'master:attr', '{"01":{"value":"01","label":"北海道エリア"},"05":{"value":"05","label":"東北エリア"},"10":{"value":"10","label":"北関東エリア"},"15":{"value":"15","label":"首都圏エリア"},"20":{"value":"20","label":"甲信越エリア"},"25":{"value":"25","label":"北陸エリア"},"30":{"value":"30","label":"東海エリア"},"35":{"value":"35","label":"近畿エリア"},"40":{"value":"40","label":"山陰・山陽エリア"},"45":{"value":"45","label":"四国エリア"},"50":{"value":"50","label":"九州エリア"},"55":{"value":"55","label":"沖縄エリア"}}'
+
+#---------- guess:care:breakfast:acl ----------
+put 'condition', 'guess:care:breakfast:acl', 'master:description', '宿泊実績から推測'
+put 'condition', 'guess:care:breakfast:acl', 'master:type', 'slider'
+put 'condition', 'guess:care:breakfast:acl', 'master:attr', '{"label":" Level","care":{"label":"こだわり度数","option":{"min":1,"max":5,"value":3}}}'
+
+#---------- guess:care:breakfast:pre ----------
+put 'condition', 'guess:care:breakfast:pre', 'master:description', '閲覧履歴から推測'
+put 'condition', 'guess:care:breakfast:pre', 'master:type', 'slider'
+put 'condition', 'guess:care:breakfast:pre', 'master:attr', '{"label":" Level","care":{"label":"こだわり度数","option":{"min":1,"max":5,"value":3}}}'
+
+#---------- guess:idea:sports ----------
+put 'condition', 'guess:idea:sports', 'master:description', 'こだわり条件の設定状況から推測'
+put 'condition', 'guess:idea:sports', 'master:type', 'hidden'
+put 'condition', 'guess:idea:sports', 'master:attr', '{"group_id":{"value":"group_id","label":"選択"}}'
+
+#---------- guess:idea:onsen ----------
+put 'condition', 'guess:idea:onsen', 'master:description', 'こだわり条件の設定状況から推測'
+put 'condition', 'guess:idea:onsen', 'master:type', 'hidden'
+put 'condition', 'guess:idea:onsen', 'master:attr', '{"group_id":{"value":"group_id","label":"選択"}}'
+
+#---------- guess:idea:highclass ----------
+put 'condition', 'guess:idea:highclass', 'master:description', 'こだわり条件の設定状況から推測'
+put 'condition', 'guess:idea:highclass', 'master:type', 'hidden'
+put 'condition', 'guess:idea:highclass', 'master:attr', '{"group_id":{"value":"group_id","label":"選択"}}'
+
+#---------- guess:idea:meal ----------
+put 'condition', 'guess:idea:meal', 'master:description', 'こだわり条件の設定状況から推測'
+put 'condition', 'guess:idea:meal', 'master:type', 'hidden'
+put 'condition', 'guess:idea:meal', 'master:attr', '{"group_id":{"value":"group_id","label":"選択"}}'
+
+#---------- now:do:clip ----------
+put 'condition', 'now:do:clip', 'master:description', '当ホテルをクリップしてくれたユーザ'
+put 'condition', 'now:do:clip', 'master:type', 'hidden'
+put 'condition', 'now:do:clip', 'master:attr', '{"group_id":{"value":"group_id","label":"選択"}}'
+
+#---------- now:do:voice ----------
+put 'condition', 'now:do:voice', 'master:description', '当ホテルのクチコミを投稿(できたら)'
+put 'condition', 'now:do:voice', 'master:type', 'hidden'
+put 'condition', 'now:do:voice', 'master:attr', '{"select":{"value":"select","label":"選択"}}'
+
+#---------- now:search:area:region ----------
+put 'condition', 'now:search:area:region', 'master:description', 'エリア単位で選択'
+put 'condition', 'now:search:area:region', 'master:type', 'checkbox'
+put 'condition', 'now:search:area:region', 'master:attr', '{"01":{"value":"01","label":"北海道エリア"},"05":{"value":"05","label":"東北エリア"},"10":{"value":"10","label":"北関東エリア"},"15":{"value":"15","label":"首都圏エリア"},"20":{"value":"20","label":"甲信越エリア"},"25":{"value":"25","label":"北陸エリア"},"30":{"value":"30","label":"東海エリア"},"35":{"value":"35","label":"近畿エリア"},"40":{"value":"40","label":"山陰・山陽エリア"},"45":{"value":"45","label":"四国エリア"},"50":{"value":"50","label":"九州エリア"},"55":{"value":"55","label":"沖縄エリア"}}'
+
+#---------- now:search:care ----------
+put 'condition', 'now:search:care', 'master:type', 'checkbox'
+put 'condition', 'now:search:care', 'master:attr', '{"careOutsidePool":{"value":"careOutsidePool","label":"屋外プール"},"careStation5":{"value":"careStation5","label":"駅から徒歩5分以内"},"careNsmr":{"value":"careNsmr","label":"禁煙ルーム"},"careBath":{"value":"careBath","label":"内湯・大浴場"},"careBathRent":{"value":"careBathRent","label":"貸切風呂"},"careDinRoom":{"value":"careDinRoom","label":"部屋で夕食"},"careHighClass":{"value":"careHighClass","label":"じゃらんハイクラス掲載の宿"},"carePoint":{"value":"carePoint","label":"旧じゃらんポイントが使える宿"},"careBeach5":{"value":"careBeach5","label":"ビーチまで徒歩5分"},"careCard":{"value":"careCard","label":"オンラインカード決済可能なプラン"},"carePak":{"value":"carePak","label":"駐車場無料"},"careItnr":{"value":"careItnr","label":"部屋でインターネットOK"},"careOnsen":{"value":"careOnsen","label":"温泉"},"carePribateBath":{"value":"carePribateBath","label":"露天風呂付き客室"},"careSweet":{"value":"careSweet","label":"特別室・離れ・スイート"},"careEsthetics":{"value":"careEsthetics","label":"エステ設備"},"careLookoutBath":{"value":"careLookoutBath","label":"展望風呂"},"careJacuzzy":{"value":"careJacuzzy","label":"ジャグジー"},"careSkiRent":{"value":"careSkyRent","label":"貸しスキー"},"careSogei":{"value":"careSogei","label":"送迎あり"},"careDinPrv":{"value":"careDinPrv","label":"個室で夕食"},"careOpenbath":{"value":"careOpenbath","label":"露天風呂"},"careNigori":{"value":"careNigori","label":"にごり湯"},"careCheckout11":{"value":"careCheckout11","label":"チェックアウト11時以降"},"careTakkyu":{"value":"careTakkyu","label":"卓球あり"},"careSauna":{"value":"careSauna","label":"サウナ"},"careMassage":{"value":"careMassage","label":"マッサージ"},"careBoardRent":{"value":"careBoardRent","label":"貸しボード"},"careBrkRoom":{"value":"careBrkRoom","label":"部屋で朝食"},"careBrkPrv":{"value":"careBrkPrv","label":"個室で朝食"},"careKake":{"value":"careKake","label":"源泉掛け流し"}}'
+
+#---------- now:search:date ----------
+put 'condition', 'now:search:date', 'master:description', '設定年月日を含む検索をしている'
+put 'condition', 'now:search:date', 'master:type', 'datepicker'
+put 'condition', 'now:search:date', 'master:attr', '{"label":"","pick":{"label":"Date","option":{"dateFormat":"yy/mm/dd"}}}'
+
+#---------- now:search:meal ----------
+put 'condition', 'now:search:meal', 'master:type', 'checkbox'
+put 'condition', 'now:search:meal', 'master:attr', '{"0":{"value":"0","label":"食事なし"},"1":{"value":"1","label":"朝のみ"},"2":{"value":"2","label":"夕のみ"},"3":{"value":"3","label":"朝/夕あり"}}'
+
+#---------- now:search:room ----------
+put 'condition', 'now:search:room', 'master:type', 'checkbox'
+put 'condition', 'now:search:room', 'master:attr', '{"roomSingle":{"value":"roomSingle","label":"シングル"},"roomTwin":{"value":"roomTwin","label":"ツイン"},"roomDouble":{"value":"roomDouble","label":"ダブル"},"roomTriple":{"value":"roomTriple","label":"トリプル"},"room4bed":{"value":"room4bed","label":"4ベッド"},"roomJstyle":{"value":"roomJstyle","label":"和室"},"roomHwstyle":{"value":"roomHwstyle","label":"和洋室"}}'
+
+#---------- now:search:staycount ----------
+put 'condition', 'now:search:staycount', 'master:type', 'slider'
+put 'condition', 'now:search:staycount', 'master:attr', '{"label":" 泊以上","care":{"label":"宿泊数","option":{"min":1,"max":9,"value":1}}}'
+
+#---------- now:search:yado ----------
+put 'condition', 'now:search:yado', 'master:type', 'checkbox'
+put 'condition', 'now:search:yado', 'master:attr', '{"yadHb":{"value":"yadHb","label":"ホテル・ビジネスホテル"},"yadRk":{"value":"yadRk","label":"旅館"},"yadPm":{"value":"yadPm","label":"ペンション・民宿・ロッジ"},"yadKc":{"value":"yadKc","label":"貸別荘"},"yadKy":{"value":"yadKy","label":"公共の宿"}}'
+
+#---------- now:view:area ----------
+put 'condition', 'now:view:area', 'master:description', '当ホテルが含まれる一覧ページを10回以上、閲覧'
+put 'condition', 'now:view:area', 'master:type', 'hidden'
+put 'condition', 'now:view:area', 'master:attr', '{"group_id":{"value":"group_id","label":"選択"}}'
+
+#---------- now:view:yado ----------
+put 'condition', 'now:view:yado', 'master:description', '当ホテルに関するページをN回以上、閲覧'
+put 'condition', 'now:view:yado', 'master:type', 'text'
+put 'condition', 'now:view:yado', 'master:attr', '{"description":"閲覧回数設定","label":"回以上閲覧"}'
+
+#---------- old:history:selfarea ----------
+put 'condition', 'old:history:selfarea', 'master:description', '当ホテルと同じエリアへの宿泊履歴回数'
+put 'condition', 'old:history:selfarea', 'master:type', 'slider'
+put 'condition', 'old:history:selfarea', 'master:attr', '{"label":" 回以上","care":{"label":"宿泊回数","option":{"min":1,"max":9,"value":1}}}'
+
+#---------- test:a ----------
+put 'condition', 'test:a', 'master:description', 'テスト'
+put 'condition', 'test:a', 'master:type', 'hidden'
+put 'condition', 'test:a', 'master:attr', '{"group_id":{"value":"group_id", "label":"選択"}}'
+
+#---------- test:b ----------
+put 'condition', 'test:b', 'master:description', 'テスト'
+put 'condition', 'test:b', 'master:type', 'hidden'
+put 'condition', 'test:b', 'master:attr', '{"group_id":{"value":"group_id", "label":"選択"}}'
+
+#---------- test:c ----------
+put 'condition', 'test:c', 'master:description', '同じアクションはまとめるべき'
+put 'condition', 'test:c', 'master:type', 'hidden'
+put 'condition', 'test:c', 'master:attr', '{"group_id":{"value":"group_id", "label":"選択"}}'
+
+#---------- test:d ----------
+put 'condition', 'test:d', 'master:description', '単体で $join 確認'
+put 'condition', 'test:d', 'master:type', 'hidden'
+put 'condition', 'test:d', 'master:attr', '{"group_id":{"value":"group_id", "label":"選択"}}'
+
+#---------- test:e ----------
+put 'condition', 'test:e', 'master:description', 'region 指定のみ'
+put 'condition', 'test:e', 'master:type', 'hidden'
+put 'condition', 'test:e', 'master:attr', '{"group_id":{"value":"group_id", "label":"選択"}}'
+
+#---------- test:f ----------
+put 'condition', 'test:f', 'master:description', 'count確認用'
+put 'condition', 'test:f', 'master:type', 'hidden'
+put 'condition', 'test:f', 'master:attr', '{"group_id":{"value":"group_id", "label":"選択"}}'

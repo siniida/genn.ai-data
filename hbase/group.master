@@ -1,0 +1,7 @@
+put 'group', 'JLN:321756', 'master:site_id', 'JLN'
+put 'group', 'JLN:321756', 'master:group_id', '321756'
+put 'group', 'JLN:321756', 'master:name', '飯田'
+put 'group', 'JLN:321756', 'master:account', 'sinpukyu@gmail.com'
+put 'group', 'JLN:321756', 'master:password', '631318d9d326640710691f4ad63ac83c'
+put 'group', 'JLN:321756', 'master:debug', '1'
+put 'group', 'JLN:321756', 'master:areacd', '010200'

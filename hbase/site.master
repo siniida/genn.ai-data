@@ -1,0 +1,4 @@
+put 'site', 'JLN', 'master:account', 'iida@curicle.jp'
+put 'site', 'JLN', 'master:name', '飯田'
+put 'site', 'JLN', 'master:site_id', 'JLN'
+put 'site', 'JLN', 'master:password', '46f4d78900946b9845d6ab1c17990c49'

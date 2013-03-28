@@ -1,0 +1,123 @@
+#---------- guess:area:region ----------
+put 'condition', 'guess:area:region', 'template:filter', '{"$filter":[[{"$action":"V002","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":10},{"$action":"V003","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V004","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V010","#count":["7d",{"$tagert.region":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V011","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V012","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V013","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V014","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V015","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V016","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V017","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V020","#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":70}]],"$join":[{"$collection":"jalan.prefecture","$field":{"region":"$target.region"},"$on":{"code":"$target.kenCd"}},{"$collection":"jalan.largeArea","$field":{"region":"$target.region"},"$on":{"code":"$target.lrgCd"}},{"$collection":"jalan.hotel","$field":{"region":"$target.region"},"$on":{"id":"$target.yadNo"}}]}'
+put 'condition', 'guess:area:region', 'template:type', 'array'
+
+#---------- guess:area:XX:pref ----------
+put 'condition', 'guess:area:XX:pref', 'template:filter', '{"$filter":[[{"$action":"V002","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":10},{"$action":"V003","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V004","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V010","#count":["7d",{"$tagert.kenCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V011","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V012","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V013","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V014","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V015","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V016","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V017","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V020","#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":70}]],"$join":[{"$collection":"jalan.largeArea","$field":{"prefecture":"$target.kenCd"},"$on":{"code":"$target.lrgCd"}},{"$collection":"jalan.smallArea","$field":{"prefecture":"$target.kenCd"},"$on":{"code":"$target.smlCd"}},{"$collection":"jalan.hotel","$field":{"prefecture":"$target.kenCd"},"$on":{"id":"$target.yadNo"}}]}'
+put 'condition', 'guess:area:XX:pref', 'template:type', 'array'
+
+#---------- guess:area:XX:XXXXXX:large ----------
+put 'condition', 'guess:area:XX:XXXXXX:large', 'template:filter', '{"$filter":[[{"$action":"V003","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V004","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V010","#count":["7d",{"$tagert.lrgCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V011","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V012","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V013","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V014","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V015","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V016","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V017","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V020","#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":70}]],"$join":[{"$collection":"jalan.smallArea","$field":{"largearea":"$target.lrgCd"},"$on":{"code":"$target.smlCd"}}]}'
+put 'condition', 'guess:area:XX:XXXXXX:large', 'template:type', 'array'
+
+#---------- guess:area:XX:XXXXXX:XXXXXX ----------
+put 'condition', 'guess:area:XX:XXXXXX:XXXXXX', 'template:filter', '{"$filter":[[{"$action":"V003","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V004","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V010","#count":["7d",{"$tagert.smlCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V011","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V012","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V013","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V014","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V015","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":30},{"$action":"V016","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V017","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":50},{"$action":"V020","#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":70}]]}'
+put 'condition', 'guess:area:XX:XXXXXX:XXXXXX', 'template:type', 'array'
+
+#---------- guess:care:breakfast:acl ----------
+put 'condition', 'guess:care:breakfast:acl', 'template:filter', '{"$filter":[[{"$action":"V001","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V002","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V003","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V004","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V010","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V011","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V012","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V013","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V014","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V015","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V016","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V017","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"},{"$action":"V020","#mode":["$user.breakfastCntAcl",2,1],"$ge":"__REPLACE__"}]]}'
+put 'condition', 'guess:care:breakfast:acl', 'template:type', 'int'
+
+#---------- guess:care:breakfast:pre ----------
+put 'condition', 'guess:care:breakfast:pre', 'template:filter', '{"$filter":[[{"$action":"V001","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V002","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V003","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V004","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V010","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V011","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V012","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V013","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V014","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V015","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V016","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V017","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"},{"$action":"V020","#mode":["$user.breakfastCntPre",10,1],"$ge":"__REPLACE__"}]]}'
+put 'condition', 'guess:care:breakfast:pre', 'template:type', 'int'
+
+#---------- guess:idea:highclass ----------
+put 'condition', 'guess:idea:highclass', 'template:filter', '{"$filter":[[{"$action":"S003","#count":["7d",{"$target.care":{"$in":["じゃらんハイクラス掲載の宿","特別室・離れ・スイート","エステ設備","ジャグジー"]}}],"$ge":10},{"$action":"V003","#count":["7d",{"$target.care":{"$in":["じゃらんハイクラス掲載の宿","特別室・離れ・スイート","エステ設備","ジャグジー"]}}],"$ge":30}]]}'
+put 'condition', 'guess:idea:highclass', 'template:type', 'string'
+
+#---------- guess:idea:meal ----------
+put 'condition', 'guess:idea:meal', 'template:filter', '{"$filter":[[{"$action":"S003","#count":["7d",{"$target.care":{"$in":["部屋で夕食","個室で夕食","部屋で朝食","個室で朝食"]}}],"$ge":10},{"$action":"V003","#count":["7d",{"$target.care":{"$in":["部屋で夕食","個室で夕食","部屋で朝食","個室で朝食"]}}],"$ge":30}]]}'
+put 'condition', 'guess:idea:meal', 'template:type', 'string'
+
+#---------- guess:idea:onsen ----------
+put 'condition', 'guess:idea:onsen', 'template:filter', '{"$filter":[[{"$action":"S003","#count":["7d",{"$target.care":{"$in":["内湯・大浴場","貸切風呂・貸切露天","温泉","露天風呂付き客室","展望風呂","ジャグジー","露天風呂","にごり湯","サウナ","源泉掛け流し"]}}],"$ge":10},{"$action":"V003","#count":["7d",{"$target.care":{"$in":["内湯・大浴場","貸切風呂・貸切露天","温泉","露天風呂付き客室","展望風呂","ジャグジー","露天風呂","にごり湯","サウナ","源泉掛け流し"]}}],"$ge":30}]]}'
+put 'condition', 'guess:idea:onsen', 'template:type', 'string'
+
+#---------- guess:idea:sports ----------
+put 'condition', 'guess:idea:sports', 'template:filter', '{"$filter":[[{"$action":"S003","#count":["7d",{"$target.care":{"$in":["屋外プール","ビーチまで徒歩5分","貸しスキー","貸しボード"]}}],"$ge":10},{"$action":"V003","#count":["7d",{"$target.care":{"$in":["屋外プール","ビーチまで徒歩5分","貸しスキー","貸しボード"]}}],"$ge":30}]]}'
+put 'condition', 'guess:idea:sports', 'template:type', 'string'
+
+#---------- now:do:clip ----------
+put 'condition', 'now:do:clip', 'template:filter', '{"$filter":[{"$action":"D010","$target.yadNo":"__REPLACE__"}]}'
+put 'condition', 'now:do:clip', 'template:type', 'string'
+
+#---------- now:do:voice ----------
+put 'condition', 'now:do:voice', 'template:filter', '{"$filter":[{"$action":"D020","$target.yadNo":"__REPLACE__"}]}'
+put 'condition', 'now:do:voice', 'template:type', 'string'
+
+#---------- now:search:area:region ----------
+put 'condition', 'now:search:area:region', 'template:filter', '{"$filter":[[{"$action":"S001","$target.region":{"$in":"__REPLACE__"}},{"$action":"S003","$target.region":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V004","#count":["3h",{"$target.region":{"$in":"__REPLACE__"}}],"$ge":3},]],"$join":[{"$collection":"jalan.prefecture","$field":{"region":"$target.region"},"$on":{"code":"$target.kenCd"}},{"$collection":"jalan.largeArea","$field":{"region":"$target.region"},"$on":{"code":"$target.lrgCd"}},{"$collection":"jalan.smallArea","$field":{"region":"$target.region"},"$on":{"code":"$target.smlCd"}}]}'
+put 'condition', 'now:search:area:region', 'template:type', 'array'
+
+#---------- now:search:area:XX:pref ----------
+put 'condition', 'now:search:area:XX:pref', 'template:filter', '{"$filter":[[{"$action":"S001","$target.kenCd":{"$in":"__REPLACE__"}},{"$action":"S003","$target.kenCd":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V004","#count":["3h",{"$target.kenCd":{"$in":"__REPLACE__"}}],"$ge":3}]],"$join":[{"$collection":"jalan.largeArea","$field":{"prefecture":"$target.kenCd"},"$on":{"code":"$target.lrgCd"}},{"$collection":"jalan.smallArea","$field":{"prefecture":"$target.kenCd"},"$on":{"code":"$target.smlCd"}}]}'
+put 'condition', 'now:search:area:XX:pref', 'template:type', 'array'
+
+#---------- now:search:area:XX:XXXXXX:large ----------
+put 'condition', 'now:search:area:XX:XXXXXX:large', 'template:filter', '{"$filter":[[{"$action":"S001","$target.lrgCd":{"$in":"__REPLACE__"}},{"$action":"S003","$target.lrgCd":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V004","#count":["3h",{"$target.lrgCd":{"$in":"__REPLACE__"}}],"$ge":3}]],"$join":[{"$collection":"jalan.smallArea","$field":{"largearea":"$target.lrgCd"},"$on":{"code":"$target.smlCd"}}]}'
+put 'condition', 'now:search:area:XX:XXXXXX:large', 'template:type', 'array'
+
+#---------- now:search:area:XX:XXXXXX:XXXXXX ----------
+put 'condition', 'now:search:area:XX:XXXXXX:XXXXXX', 'template:filter', '{"$filter":[[{"$action":"S001","$target.smlCd":{"$in":"__REPLACE__"}},{"$action":"S003","$target.smlCd":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V004","#count":["3h",{"$target.smlCd":{"$in":"__REPLACE__"}}],"$ge":3}]]}'
+put 'condition', 'now:search:area:XX:XXXXXX:XXXXXX', 'template:type', 'array'
+
+#---------- now:search:care ----------
+put 'condition', 'now:search:care', 'template:filter', '{"$filter":[[{"$action":"S001","$target.careType":{"$in":"__REPLACE__"}},{"$action":"S003","$target.careType":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.careType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V004","#count":["3h",{"$target.careType":{"$in":"__REPLACE__"}}],"$ge":3}]]}'
+put 'condition', 'now:search:care', 'template:type', 'array'
+
+#---------- now:search:date ----------
+put 'condition', 'now:search:date', 'template:filter', '{"$filter":[[{"$action":"S001","$target.stayDateFrom":{"$le":"__REPLACE__"},"$target.stayDateTo":{"$gt":"__REPLACE__"}},{"$action":"S003","$target.stayDateFrom":{"$le":"__REPLACE__"},"$target.stayDateTo":{"$gt":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.stayDateFrom":{"$le":"__REPLACE__"},"$target.stayDateTo":{"$gt":"__REPLACE__"}}],"$ge":3},{"$action":"V004","#count":["3h",{"$target.stayDateFrom":{"$le":"__REPLACE__"},"$target.stayDateTo":{"$gt":"__REPLACE__"}}],"$ge":3}]]}'
+put 'condition', 'now:search:date', 'template:type', 'date'
+
+#---------- now:search:meal ----------
+put 'condition', 'now:search:meal', 'template:filter', '{"$filter":[[{"$action":"S003","$target.mealType":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.mealType":{"$in":"__REPLACE__"}}],"$ge":3},{"$action":"V004","#count":["3h",{"$target.mealType":{"$in":"__REPLACE__"}}],"$ge":3}]]}'
+put 'condition', 'now:search:meal', 'template:type', 'array'
+
+#---------- now:search:room ----------
+put 'condition', 'now:search:room', 'template:filter', '{"$filter":[[{"$action":"S003","$target.roomType":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.roomType":{"$in":"__REPLACE__"}}],"$ge":3},{"$action":"V004","#count":["3h",{"$target.roomType":{"$in":"__REPLACE__"}}],"$ge":3},{"$action":"V020","#count":["3h",{"$target.roomType":{"$in":"__REPLACE__"}}],"$ge":5}]],"$join":[{"$collection":"jalan.plan","$field":{"roomtype":"$target.roomType"},"$on":{"code":"$target.planCd","roomcode":"$target.roomTypeCd"}}]}'
+put 'condition', 'now:search:room', 'template:type', 'array'
+
+#---------- now:search:staycount ----------
+put 'condition', 'now:search:staycount', 'template:filter', '{"$filter":[[{"$action":"S003","$target.stayCount":{"$ge":"__REPLACE__"}},{"$action":"V003","#count":["3h",{$target.stayCount":{"$ge":"__REPLACE__"}}],"$ge":3},{"$action":"V004","#count":["3h",{$target.stayCount":{"$ge":"__REPLACE__"}}],"$ge":3}]]}'
+put 'condition', 'now:search:staycount', 'template:type', 'int'
+
+#---------- now:search:yado ----------
+put 'condition', 'now:search:yado', 'template:filter', '{"$filter":[[{"$action":"S003","$target.yadType":{"$in":"__REPLACE__"}},{"$action":"V003","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":3},{"$action":"V004","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":3},{"$action":"V010","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V011","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V012","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V013","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V014","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V015","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V016","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V017","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":5},{"$action":"V020","#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],"$ge":10}]],"$join":[{"$collection":"jalan.hotel","$field":{"type":"$target.yadType"},"$on":{"id":"$target.yadNo"}}]}'
+put 'condition', 'now:search:yado', 'template:type', 'array'
+
+#---------- now:view:area ----------
+put 'condition', 'now:view:area', 'template:filter', '{"$filter":[[{"$action":"V003","#count":["3h",{"$target.lrgCd":"__REPLACE__"}],"$ge":10}]],"$join":[{"$collection":"jalan.smallArea","$field":{"largearea":"$target.lrgCd"},"$on":{"code":"$target.smlCd"}}]}'
+put 'condition', 'now:view:area', 'template:type', 'string'
+
+#---------- now:view:yado ----------
+put 'condition', 'now:view:yado', 'template:filter', '{"$filter":[{"$action":"V010","#count":["1h",{"$target.yadNo":"__REPLACE__"}],"$ge":1},{"$action":"V011","#count":["1h",{"$target.yadNo":"__REPLACE__"}],"$ge":1},{"$action":"V020","#count":["1h",{"$target.yadNo":"__REPLACE__"}],"$ge":3}]}'
+put 'condition', 'now:view:yado', 'template:type', 'string'
+
+#---------- old:history:selfarea ----------
+put 'condition', 'old:history:selfarea', 'template:filter', '{"$filter":[[{"$action":"V001","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V002","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V003","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V004","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V010","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V011","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V012","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V013","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V014","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V015","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V016","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V017","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}},{"$action":"V020","$user.largeAreaCntAcl.__AREACODE__":{"$ge":"__REPLACE__"}}]]}'
+put 'condition', 'old:history:selfarea', 'template:type', 'int'
+
+#---------- test:a ----------
+put 'condition', 'test:a', 'template:filter', '{"$filter":[{"$action":"V002","$target.region":"01"}],"$join":[{"$collection":"jalan.prefecture","$field":{"region":"$target.region"},"$on":{"code":"$target.kenCd"}}]}'
+put 'condition', 'test:a', 'template:type', 'none'
+
+#---------- test:b ----------
+put 'condition', 'test:b', 'template:filter', '{"$filter":[[{"$action":"V002","$target.region":"01"},{"$action":"V003","$target.region":"01"}]],"$join":[{"$collection":"jalan.prefecture","$field":{"region":"$target.region"},"$on":{"code":"$target.kenCd"}},{"$collection":"jalan.largeArea","$field":{"region":"$target.region"},"$on":{"code":"$target.lrgCd"}}]}'
+put 'condition', 'test:b', 'template:type', 'none'
+
+#---------- test:c ----------
+put 'condition', 'test:c', 'template:filter', '{"$filter":[{"$action":"V002","$target.region":{"$in":["01","05"]}}],"$join":[{"$collection":"jalan.prefecture","$field":{"region":"$target.region"},"$on":{"code":"$target.kenCd"}}]}'
+put 'condition', 'test:c', 'template:type', 'none'
+
+#---------- test:d ----------
+put 'condition', 'test:d', 'template:filter', '{"$filter":[{"$action":"V003","$target.region":"01"}],"$join":[{"$collection":"jalan.largeArea","$field":{"region":"$target.region"},"$on":{"code":"$target.lrgCd"}}]}'
+put 'condition', 'test:d', 'template:type', 'none'
+
+#---------- test:e ----------
+put 'condition', 'test:e', 'template:filter', '{"$filter":[{"$action":"V002","#count":["3h",{"$target.region":{"$in":["01","05"]}}],"$ge":3}]}'
+put 'condition', 'test:e', 'template:type', 'none'
+
+#---------- test:f ----------
+put 'condition', 'test:f', 'template:filter', '{"$filter":[{"$action":"V002","#count":["3h",{"$target.region":{"$in":["01","05"]}}],"$ge":3}],"$join":[{"$collection":"jalan.prefecture","$field":{"region":"$target.region"},"$on":{"code":"$target.kenCd"}}]}'
+put 'condition', 'test:f', 'template:type', 'none'
