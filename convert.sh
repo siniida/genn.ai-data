@@ -24,10 +24,15 @@ do
 		"# key:"*)
 			KEY=`echo ${LINE} | awk '{print $NF}'`
 			;;
+		"# type:"*)
+			TYPE=`echo ${LINE} | awk '{print $NF}'`
+			;;
 		"#"*)
 			;;
 		"")
-			printf "put 'condition', '${KEY}', 'template:filter', '%s'\n\n" ${DATA};
+			echo "put 'condition', '${KEY}', 'template:filter', '${DATA}'"
+			echo "put 'condition', '${KEY}', 'template:type', ${TYPE}"
+			echo 
 			DATA=''
 			;;
 		*)
