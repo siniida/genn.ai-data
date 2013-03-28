@@ -1,0 +1,1140 @@
+#------------------------------------------------------------------------------
+# (推測)エリア選択 - guess:area:region
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V002",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":10
+			},
+			{
+				"$action":"V003",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V004",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V010",
+				"#count":["7d",{"$tagert.region":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V011",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V012",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V013",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V014",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V015",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V016",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V017",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V020",
+				"#count":["7d",{"$target.region":{"$in":"__REPLACE__"}}],
+				"$ge":70
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.prefecture",
+			"$field":{
+				"region":"$target.region"
+			},
+			"$on":{
+				"code":"$target.kenCd"
+			}
+		},
+		{
+			"$collection":"jalan.largeArea",
+			"$field":{
+				"region":"$target.region"
+			},
+			"$on":{
+				"code":"$target.lrgCd"
+			}
+		},
+		{
+			"$collection":"jalan.hotel",
+			"$field":{
+				"region":"$target.region"
+			},
+			"$on":{
+				"id":"$target.yadNo"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測) 都道府県選択 - guess:area:XX:pref
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V002",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":10
+			},
+			{
+				"$action":"V003",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V004",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V010",
+				"#count":["7d",{"$tagert.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V011",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V012",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V013",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V014",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V015",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V016",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V017",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V020",
+				"#count":["7d",{"$target.kenCd":{"$in":"__REPLACE__"}}],
+				"$ge":70
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.largeArea",
+			"$field":{
+				"prefecture":"$target.kenCd"
+			},
+			"$on":{
+				"code":"$target.lrgCd"
+			}
+		},
+		{
+			"$collection":"jalan.smallArea",
+			"$field":{
+				"prefecture":"$target.kenCd"
+			},
+			"$on":{
+				"code":"$target.smlCd"
+			}
+		},
+		{
+			"$collection":"jalan.hotel",
+			"$field":{
+				"prefecture":"$target.kenCd"
+			},
+			"$on":{
+				"id":"$target.yadNo"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測) 大エリア選択 - guess:area:XXXXXX:large
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V003",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V004",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V010",
+				"#count":["7d",{"$tagert.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V011",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V012",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V013",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V014",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V015",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V016",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V017",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V020",
+				"#count":["7d",{"$target.lrgCd":{"$in":"__REPLACE__"}}],
+				"$ge":70
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.smallArea",
+			"$field":{
+				"largearea":"$target.lrgCd"
+			},
+			"$on":{
+				"code":"$target.smlCd"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測) 小エリア選択 - guess:area:XXXXXX:XXXXXX
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V003",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V004",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V010",
+				"#count":["7d",{"$tagert.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V011",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V012",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V013",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V014",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V015",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":30
+			},
+			{
+				"$action":"V016",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V017",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":50
+			},
+			{
+				"$action":"V020",
+				"#count":["7d",{"$target.smlCd":{"$in":"__REPLACE__"}}],
+				"$ge":70
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (実績) 朝食こだわり guess:care:breakfast:acl
+# type: int
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V001",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V002",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V003",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V004",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V010",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V011",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V012",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V013",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V014",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V015",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V016",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V017",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V020",
+				"#mode": ["$user.breakfastCntAcl", 2, 1],
+				"$ge": "__REPLACE__"
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測) 朝食こだわり guess:care:breakfast:pre
+# type: int
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V001",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V002",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V003",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V004",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V010",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V011",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V012",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V013",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V014",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V015",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V016",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V017",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			},
+			{
+				"$action":"V020",
+				"#mode": ["$user.breakfastCntPre", 10, 1],
+				"$ge": "__REPLACE__"
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測)高級趣向 - guess:idea:highclass
+# type: none
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"#count":["7d", {"$target.care":{"$in":["じゃらんハイクラス掲載の宿","特別室・離れ・スイート","エステ設備", "ジャグジー"]}}],
+				"$ge":10
+			},
+			{
+				"$action":"V003",
+				"#count":["7d", {"$target.care":{"$in":["じゃらんハイクラス掲載の宿","特別室・離れ・スイート","エステ設備", "ジャグジー"]}}],
+				"$ge":30
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測)プライベート食事趣向 - guess:idea:meal
+# type: none
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"#count":["7d", {"$target.care":{"$in":["部屋で夕食","個室で夕食","部屋で朝食","個室で朝食"]}}],
+				"$ge":10
+			},
+			{
+				"$action":"V003",
+				"#count":["7d", {"$target.care":{"$in":["部屋で夕食","個室で夕食","部屋で朝食","個室で朝食"]}}],
+				"$ge":30
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測)温泉好き - guess:idea:onsen
+# type: none
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"#count":["7d", {"$target.care":{"$in":["内湯・大浴場","貸切風呂・貸切露天","温泉","露天風呂付き客室","展望風呂","ジャグジー","露天風呂","にごり湯","サウナ","源泉掛け流し"]}}],
+				"$ge":10
+			},
+			{
+				"$action":"V003",
+				"#count":["7d", {"$target.care":{"$in":["内湯・大浴場","貸切風呂・貸切露天","温泉","露天風呂付き客室","展望風呂","ジャグジー","露天風呂","にごり湯","サウナ","源泉掛け流し"]}}],
+				"$ge":30
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (推測)高級嗜好 - guess:idea:sports
+# type: none
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"#count":["7d", {"$target.care":{"$in":["屋外プール","ビーチまで徒歩5分","貸しスキー","貸しボード"]}}],
+				"$ge":10
+			},
+			{
+				"$action":"V003",
+				"#count":["7d", {"$target.care":{"$in":["屋外プール","ビーチまで徒歩5分","貸しスキー","貸しボード"]}}],
+				"$ge":30
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近行動) クリップ now:do:clip
+# type: string
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		{
+			"$action":"D010",
+			"$target.yadNo":"__REPLACE__"
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近行動) クチコミ投稿 now:do:voice
+# type: string
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		{
+			"$action":"D020",
+			"$target.yadNo":"__REPLACE__"
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) エリア選択 - now:search:area:region
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S001",
+				"$target.region":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"S003",
+				"$target.region":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.region":{"$in": "__REPLACE__"}}],
+				"$ge": 5
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.region":{"$in": "__REPLACE__"}}],
+				"$ge": 3
+			},
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.prefecture",
+			"$field":{
+				"region":"$target.region"
+			},
+			"$on":{
+				"code":"$target.kenCd"
+			}
+		},
+		{
+			"$collection":"jalan.largeArea",
+			"$field":{
+				"region":"$target.region"
+			},
+			"$on":{
+				"code":"$target.lrgCd"
+			}
+		},
+		{
+			"$collection":"jalan.smallArea",
+			"$field":{
+				"region":"$target.region"
+			},
+			"$on":{
+				"code":"$target.smlCd"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) 都道府県選択 - now:search:area:XX:pref
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S001",
+				"$target.kenCd":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"S003",
+				"$target.kenCd":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.kenCd": {"$in": "__REPLACE__"}}],
+				"$ge": 5
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.kenCd": {"$in": "__REPLACE__"}}],
+				"$ge": 3
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.largeArea",
+			"$field":{
+				"prefecture":"$target.kenCd"
+			},
+			"$on":{
+				"code":"$target.lrgCd"
+			}
+		},
+		{
+			"$collection":"jalan.smallArea",
+			"$field":{
+				"prefecture":"$target.kenCd"
+			},
+			"$on":{
+				"code":"$target.smlCd"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) 大エリア選択 - now:search:area:XX:XXXXXX:large
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S001",
+				"$target.lrgCd":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"S003",
+				"$target.lrgCd":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.lrgCd": {"$in": "__REPLACE__"}}],
+				"$ge": 5
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.lrgCd": {"$in": "__REPLACE__"}}],
+				"$ge": 3
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.smallArea",
+			"$field":{
+				"largearea":"$target.lrgCd"
+			},
+			"$on":{
+				"code":"$target.smlCd"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) 小エリア選択 - now:search:area:XX:XXXXXX:XXXXXX
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S001",
+				"$target.smlCd":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"S003",
+				"$target.smlCd":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.smlCd": {"$in": "__REPLACE__"}}],
+				"$ge": 5
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.smlCd": {"$in": "__REPLACE__"}}],
+				"$ge": 3
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索)こだわり now:search:care
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S001",
+				"$target.careType":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"S003",
+				"$target.careType":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.careType": {"$in": "__REPLACE__"}}],
+				"$ge": 5
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.careType": {"$in": "__REPLACE__"}}],
+				"$ge": 3
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索)日付 now:search:date
+# type: int
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S001",
+				"$target.stayDateFrom": {"$le": "__REPLACE__"},
+				"$target.stayDateTo": {"$gt": "__REPLACE__"}
+			},
+			{
+				"$action":"S003",
+				"$target.stayDateFrom": {"$le": "__REPLACE__"},
+				"$target.stayDateTo": {"$gt": "__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": [
+					"3h",
+					{
+						"$target.stayDateFrom": {"$le": "__REPLACE__"},
+						"$target.stayDateTo": {"$gt": "__REPLACE__"}
+					}
+				],
+				"$ge": 3
+			},
+			{
+				"$action":"V004",
+				"#count": [
+					"3h",
+					{
+						"$target.stayDateFrom": {"$le": "__REPLACE__"},
+						"$target.stayDateTo": {"$gt": "__REPLACE__"}
+					}
+				],
+				"$ge": 3
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索)食事タイプ now:search:meal
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"$target.mealType": {"$in": "__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.mealType": {"$in": "__REPLACE__"}}],
+				"$ge": 3
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.mealType": {"$in": "__REPLACE__"}}],
+				"$ge": 3
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) 部屋タイプ - now:search:room
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"$target.roomType":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {"$target.roomType":{"$in":"__REPLACE__"}}],
+				"$ge": 3
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {"$target.roomType":{"$in":"__REPLACE__"}}],
+				"$ge": 3
+			},
+			{
+				"$action":"V020",
+				"#count":["3h", {"$target.roomType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.plan",
+			"$field":{
+				"roomtype":"$target.roomType"
+			},
+			"$on":{
+				"code":"$target.planCd",
+				"roomcode":"$target.roomTypeCd"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) 宿泊数 - now:search:staycount
+# type: int
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"$target.stayCount": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count": ["3h", {$target.stayCount": {"$ge": "__REPLACE__"}}],
+				"$ge": 3
+			},
+			{
+				"$action":"V004",
+				"#count": ["3h", {$target.stayCount": {"$ge": "__REPLACE__"}}],
+				"$ge": 3
+			}
+		]
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近検索) 宿タイプ - now:search:yado
+# type: array
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"S003",
+				"$target.yadType":{"$in":"__REPLACE__"}
+			},
+			{
+				"$action":"V003",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":3
+			},
+			{
+				"$action":"V004",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":3
+			},
+			{
+				"$action":"V010",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V011",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V012",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V013",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V014",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V015",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V016",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V017",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":5
+			},
+			{
+				"$action":"V020",
+				"#count":["3h",{"$target.yadType":{"$in":"__REPLACE__"}}],
+				"$ge":10
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.hotel",
+			"$field":{
+				"type":"$target.yadType"
+			},
+			"$on":{
+				"id":"$target.yadNo"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近閲覧) 同エリア一覧ページ - now:view:area
+# type: string
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		[
+			{
+				"$action":"V003",
+				"#count":["3h", {"$target.lrgCd":"__REPLACE__"}],
+				"$ge":10
+			}
+		]
+	],
+	"$join":[
+		{
+			"$collection":"jalan.smallArea",
+			"$field":{
+				"largearea":"$target.lrgCd"
+			},
+			"$on":{
+				"code":"$target.smlCd"
+			}
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+# (直近閲覧) 宿関連ページ - now:view:yado
+# type: string
+#------------------------------------------------------------------------------
+{
+	"$filter":[
+		{
+			"$action":"V010",
+			"#count":["1h", {"$target.yadNo":"__REPLACE__"}],
+			"$ge":1
+		},
+		{
+			"$action":"V011",
+			"#count":["1h", {"$target.yadNo":"__REPLACE__"}],
+			"$ge":1
+		},
+		{
+			"$action":"V020",
+			"#count":["1h", {"$target.yadNo":"__REPLACE__"}],
+			"$ge":3
+		}
+	]
+}
+
+#------------------------------------------------------------------------------
+#  (宿泊履歴)同エリア - old:history:selfarea
+# type: string
+# type: int
+#------------------------------------------------------------------------------
+{
+	"$filter": [
+		[
+			{
+				"$action": "V001",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V002",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V003",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V004",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V010",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V011",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V012",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V013",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V014",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V015",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V016",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V017",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			},
+			{
+				"$action": "V020",
+				"$user.largeAreaCntAcl.__AREACODE__": {"$ge": "__REPLACE__"}
+			}
+		]
+	]
+}
