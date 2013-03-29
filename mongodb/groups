@@ -1,0 +1,12 @@
+{
+	"account": "iida",
+	"mail": ["iida@curicle.jp"],
+	"name": "飯田",
+	"pass": "97d6c5e76d086c1b4457c28a66d0a0de9aeacdb8d1ef4fc6117d42e3b1f308e7",
+	"site": "JLN",
+	"group": "321756",
+	"setting": {
+		"debug": true,
+		"areacd": "010200"
+	}
+}
