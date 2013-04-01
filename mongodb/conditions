@@ -1,17 +1,93 @@
 {
-	"site": "jalan",
-	"master": {
-		"guess": {
-			"path": "guess",
-			"title": "推測"
+	site: "jalan",
+	master: {
+		guess: {
+			path: "guess",
+			title: "推測",
+			area: {
+				path: "guess:area",
+				title: "興味のあるエリア",
+				region: {
+					path: "guess:area:region",
+					title: "(推測) エリア選択",
+					description: "エリア単位で複数選択可能",
+					type: "checkbox",
+					attr: {
+						"01": {
+							key: "01",
+							label: "北海道エリア",
+							value: "01"
+						},
+						"05": {
+							key: "05",
+							label: "東北エリア",
+							value: "05"
+						},
+						"10": {
+							key: "10",
+							label: "北関東エリア",
+							value: "10"
+						},
+						"15": {
+							key: "15",
+							label: "首都圏エリア",
+							value: "15"
+						},
+						"20": {
+							key: "20",
+							label: "甲信越エリア",
+							value: "20"
+						},
+						"25": {
+							key: "25",
+							label: "北陸エリア",
+							value: "25"
+						},
+						"30": {
+							key: "30",
+							label: "東海エリア",
+							value: "30"
+						},
+						"35": {
+							key: "35",
+							label: "近畿エリア",
+							value: "35"
+						},
+						"40": {
+							key: "40",
+							label: "山陰・山陽エリア",
+							value: "40"
+						},
+						"45": {
+							key: "45",
+							label: "四国エリア",
+							value: "45"
+						},
+						"50": {
+							key: "50",
+							label: "九州エリア",
+							value: "50"
+						},
+						"55": {
+							key: "55",
+							label: "沖縄エリア",
+							value: "55"
+						}
+					}
+				}
+			},
+			care : {
+				path: "guess:care",
+				title: "こだわり"
+			}
 		},
-		"now": {
-			"path": "now",
-			"title": "直近の行動"
+		now: {
+			path: "now",
+			title: "直近の行動"
 		},
-		"old": {
-			"path": "old",
-			"title": "過去の行動"
+		old: {
+			path: "old",
+			title: "過去の行動"
 		}
 	}
 }
