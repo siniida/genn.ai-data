@@ -1,0 +1,17 @@
+{
+	"site": "jalan",
+	"master": {
+		"guess": {
+			"path": "guess",
+			"title": "推測"
+		},
+		"now": {
+			"path": "now",
+			"title": "直近の行動"
+		},
+		"old": {
+			"path": "old",
+			"title": "過去の行動"
+		}
+	}
+}
