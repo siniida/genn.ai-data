@@ -513,6 +513,56 @@
 		old: {
 			path: "old",
 			title: "過去の行動"
+		},
+		test: {
+			path: "test",
+			title: "テストモジュール",
+			item: {
+				path: "test:item",
+				title: "部品チェック",
+				checkbox: {
+					path: "test:item:checkbox",
+					title: "checkbox",
+					description: "checkbox test description.",
+					type: "checkbox",
+					attr: {}
+				},
+				date: {
+					path: "test:item:date",
+					title: "date",
+					description: "date(picker) test description.",
+					type: "date",
+				},
+				hidden: {
+					path: "test:item:hidden",
+					title: "hidden",
+					description: "hidden test description",
+					type: "hidden",
+					attr: {}
+				},
+				radio: {
+					path: "test:item:radio",
+					title: "radio",
+					description: "radio test description.",
+					type: "radio",
+					attr: {}
+				},
+				slider: {
+					path: "test:item:slider",
+					title: "slider",
+					description: "slider test description."
+					type: "slider",
+					attr: {}
+				},
+				text: {
+					path: "test:item:text",
+					title: "text",
+					description: "text test description.",
+					type: "text",
+					attr: {}
+				}
+			},
+			filter: {}
 		}
 	}
 }
