@@ -78,7 +78,35 @@
 			},
 			care : {
 				path: "guess:care",
-				title: "こだわり"
+				title: "こだわり",
+				breakfast: {
+					path: "guess:care:breakfast",
+					title: "朝食",
+					acl: {
+						path: "guess:care:breakfast:acl",
+						title: "(推測)朝食こだわり実績",
+						description: "宿泊実績から推測",
+						type: "slider",
+						attr: {
+							label: " Level",
+							care: {
+								label: "こだわり度数",
+								option: {
+									min: 1,
+									max: 5,
+									value: 3
+								}
+							}
+						}
+					},
+					pre: {
+						path: "guess:care:breakfast:pre",
+						title: "(推測)朝食こだわり",
+						description: "閲覧履歴から推測",
+						type: "slider",
+						attr: 
+					}
+				}
 			}
 		},
 		now: {
