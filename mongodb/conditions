@@ -104,13 +104,13 @@
 						title: "(推測)朝食こだわり",
 						description: "閲覧履歴から推測",
 						type: "slider",
-						attr: 
+						attr: {}
 					}
 				}
 			},
 			idea: {
 				path: "guess:idea",
-				title: "i趣味・趣向",
+				title: "趣味・趣向",
 				highclass: {
 					path: "guess:idea:highclass",
 					title: "(推測)高級趣向"
@@ -119,19 +119,19 @@
 					path: "guess:idea:meal",
 					title: "(推測)プライベート食事趣向",
 					description: "こだわり条件の設定状況から推測",
-					type: "hidden",
+					type: "hidden"
 				},
 				onsen: {
 					path: "guess:idea:onsen",
 					title: "(推測)温泉好き",
 					description: "こだわり条件の設定状況から推測",
-					type: "hidden",
+					type: "hidden"
 				},
 				sports: {
 					path: "guess:idea:sports",
 					title: "(推測)スポーツ好き",
 					description: "こだわり条件の設定状況から推測",
-					type: "hidden",
+					type: "hidden"
 				}
 			}
 		},
@@ -145,7 +145,7 @@
 					path: "now:do:clip",
 					title: "(直近行動)クリップ",
 					description: "当ホテルをクリップしてくれたユーザ",
-					type: "hidden",
+					type: "hidden"
 				},
 				voice: {
 					path: "now:do:voice",
@@ -159,7 +159,7 @@
 				title: "検索",
 				area: {
 					path: "now:search:area",
-					title: "エリア"
+					title: "エリア",
 					region: {
 						path: "now:search:area:region",
 						title: "(直近検索)エリア選択",
@@ -501,13 +501,13 @@
 							key: "yadKy",
 							label: "公共の宿",
 							value: "公共の宿"
-						},
+						}
 					}
 				}
 			},
 			view: {
 				path: "now:view",
-				title: "閲覧",
+				title: "閲覧"
 			}
 		},
 		old: {
@@ -550,7 +550,7 @@
 				slider: {
 					path: "test:item:slider",
 					title: "slider",
-					description: "slider test description."
+					description: "slider test description.",
 					type: "slider",
 					attr: {}
 				},
