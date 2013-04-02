@@ -107,11 +107,408 @@
 						attr: 
 					}
 				}
+			},
+			idea: {
+				path: "guess:idea",
+				title: "i趣味・趣向",
+				highclass: {
+					path: "guess:idea:highclass",
+					title: "(推測)高級趣向"
+				},
+				meal: {
+					path: "guess:idea:meal",
+					title: "(推測)プライベート食事趣向",
+					description: "こだわり条件の設定状況から推測",
+					type: "hidden",
+				},
+				onsen: {
+					path: "guess:idea:onsen",
+					title: "(推測)温泉好き",
+					description: "こだわり条件の設定状況から推測",
+					type: "hidden",
+				},
+				sports: {
+					path: "guess:idea:sports",
+					title: "(推測)スポーツ好き",
+					description: "こだわり条件の設定状況から推測",
+					type: "hidden",
+				}
 			}
 		},
 		now: {
 			path: "now",
-			title: "直近の行動"
+			title: "直近の行動",
+			do: {
+				path: "now:do",
+				title: "行動",
+				clip: {
+					path: "now:do:clip",
+					title: "(直近行動)クリップ",
+					description: "当ホテルをクリップしてくれたユーザ",
+					type: "hidden",
+				},
+				voice: {
+					path: "now:do:voice",
+					title: "(直近行動)クチコミ投稿",
+					description: "当ホテルのクチコミを投稿",
+					type: "hidden"
+				}
+			},
+			search: {
+				path: "now:search",
+				title: "検索",
+				area: {
+					path: "now:search:area",
+					title: "エリア"
+					region: {
+						path: "now:search:area:region",
+						title: "(直近検索)エリア選択",
+						description: "エリア単位で選択",
+						type: "checkbox",
+						attr: {
+							"01": {
+								key: "01",
+								label: "北海道エリア",
+								value: "01"
+							},
+							"10": {
+								key: "10",
+								label: "東北エリア",
+								value: "10"
+							},
+							"15": {
+								key: "15",
+								label: "首都圏エリア",
+								value: "15"
+							},
+							"20": {
+								key: "20",
+								label: "甲信越エリア",
+								value: "20"
+							},
+							"25": {
+								key: "25",
+								label: "北陸エリア",
+								value: "25"
+							},
+							"30": {
+								key: "30",
+								label: "東海エリア",
+								value: "30"
+							},
+							"35": {
+								key: "35",
+								label: "近畿エリア",
+								value: "35"
+							},
+							"40": {
+								key: "40",
+								label: "山陰・山陽エリア",
+								value: "40"
+							},
+							"45": {
+								key: "45",
+								label: "四国エリア",
+								value: "45"
+							},
+							"50": {
+								key: "50",
+								label: "九州エリア",
+								value: "50"
+							},
+							"55": {
+								key: "55",
+								label: "沖縄エリア",
+								value: "55"
+							}
+						}
+					}
+				},
+				care: {
+					path: "now:search:care",
+					title: "(直近検索)こだわり",
+					description: "こだわり条件を設定して検索",
+					type: "checkbox",
+					attr: {
+						careOutsidePool: {
+							key: "careOutsidePool",
+							label: "屋外プール",
+							value: "careOutsidePool"
+						},
+						careStation5: {
+							key: "careStation5",
+							label: "駅から徒歩5分以内",
+							value: "careStation5"
+						},
+						careNsmr: {
+							key: "careNsmr",
+							label: "禁煙ルーム",
+							value: "careNsmr"
+						},
+						careBath: {
+							key: "careBath",
+							label: "内湯・大浴場",
+							value: "careBath"
+						},
+						careBathRent: {
+							key: "careBathRent",
+							label:"貸切風呂",
+							value: "careBathRent"
+						},
+						careDinRoom: {
+							key: "careDinRoom",
+							label: "部屋で夕食",
+							value: "careDinRoom"
+						},
+						careHighClass: {
+							key: "careHighClass",
+							label: "じゃらんハイクラス掲載の宿",
+							value: "careHighClass"
+						},
+						carePoint: {
+							key: "carePoint",
+							label: "旧じゃらんポイントが使える宿",
+							value: "carePoint"
+						},
+						careBeach5: {
+							key: "careBeach5",
+							label: "ビーチまで徒歩5分",
+							value: "careBeach5"
+						},
+						careCard: {
+							key: "careCard",
+							label: "オンラインカード決済可能なプラン",
+							value: "careCard"
+						},
+						carePak: {
+							key: "carePak",
+							label: "駐車場無料",
+							value: "carePak"
+						},
+						careItnr: {
+							key: "careItnr",
+							label: "部屋でインターネットOK",
+							value: "careItnr"
+						},
+						careOnsen: {
+							key: "careOnsen",
+							label: "温泉",
+							value: "careOnsen"
+						},
+						carePribateBath: {
+							key: "carePribateBath",
+							label: "露天風呂付き客室",
+							value: "carePribateBath"
+						},
+						careSweet: {
+							key: "careSweet",
+							label: "特別室・離れ・スイート",
+							value: "careSweet"
+						},
+						careEsthetics: {
+							key: "careEsthetics",
+							label: "エステ設備",
+							value: "careEsthetics"
+						},
+						careLookoutBath: {
+							key: "careLookoutBath",
+							label: "展望風呂",
+							value: "careLookoutBath"
+						},
+						careJacuzzy: {
+							key: "careJacuzzy",
+							label: "ジャグジー",
+							value: "careJacuzzy"
+						},
+						careSkiRent: {
+							key: "careSkyRent",
+							label: "貸しスキー",
+							value: "careSkyRent"
+						},
+						careSogei: {
+							key: "careSogei",
+							label: "送迎あり",
+							value: "careSogei"
+						},
+						careDinPrv: {
+							key: "careDinPrv",
+							label: "個室で夕食",
+							value: "careDinPrv"
+						},
+						careOpenbath: {
+							key: "careOpenbath",
+							label: "露天風呂",
+							value: "careOpenbath"
+						},
+						careNigori: {
+							key: "careNigori",
+							label: "にごり湯",
+							value: "careNigori"
+						},
+						careCheckout11: {
+							key: "careCheckout11",
+							label: "チェックアウト11時以降",
+							value: "careCheckout11"
+						},
+						careTakkyu: {
+							key: "careTakkyu",
+							label: "卓球あり",
+							value: "careTakkyu"
+						},
+						careSauna: {
+							key: "careSauna",
+							label: "サウナ",
+							value: "careSauna"
+						},
+						careMassage: {
+							key: "careMassage",
+							label: "マッサージ",
+							value: "careMassage"
+						},
+						careBoardRent: {
+							key: "careBoardRent",
+							label: "貸しボード",
+							value: "careBoardRent"
+						},
+						careBrkRoom: {
+							key: "careBrkRoom",
+							label: "部屋で朝食",
+							value: "careBrkRoom"
+						},
+						careBrkPrv: {
+							key: "careBrkPrv",
+							label: "個室で朝食",
+							value: "careBrkPrv"
+						},
+						careKake: {
+							key: "careKake",
+							label: "源泉掛け流し",
+							value: "careKake"
+						}
+					}
+				},
+				date: {
+					path: "now:search:date",
+					title: "(直近検索)日付",
+					description: "宿泊日を指定して検索",
+					type: "date",
+				},
+				meal: {
+					path: "now:search:meal",
+					title: "(直近検索)食事タイプ",
+					description: "食事タイプを指定して検索",
+					type: "checkbox",
+					attr: {
+						"0": {
+							key: "0",
+							label: "食事なし",
+							value: "食事なし"
+						},
+						"1": {
+							key: "1",
+							label: "朝のみ",
+							value: "朝のみ"
+						},
+						"2": {
+							key: "2",
+							label: "夕のみ",
+							value: "夕のみ"
+						},
+						"3": {
+							key: "3",
+							label: "朝/夕あり",
+							value: "朝/夕あり"
+						}
+					}
+				},
+				room: {
+					path: "now:search:room",
+					title: "(直近検索)部屋タイプ",
+					description: "部屋タイプを指定して検索",
+					type: "checkbox",
+					attr: {
+						roomSingle: {
+							key: "roomSingle",
+							label: "シングル",
+							value: "シングル"
+						},
+						roomTwin: {
+							key: "roomTwin",
+							label: "ツイン",
+							value: "ツイン"
+						},
+						roomDouble: {
+							key: "roomDouble",
+							label: "ダブル",
+							value: "ダブル"
+						},
+						roomTriple: {
+							key: "roomTriple",
+							label: "トリプル",
+							value: "トリプル"
+						},
+						room4bed: {
+							key: "room4bed",
+							label: "4ベッド",
+							value: "4ベッド"
+						},
+						roomJstyle: {
+							key: "roomJstyle",
+							label: "和室",
+							value: "和室"
+						},
+						roomHwstyle: {
+							key: "roomHwstyle",
+							label: "和洋室",
+							value: "和洋室"
+						}
+					}
+				},
+				staycount: {
+					path: "now:search:staycount",
+					title: "(直近検索)宿泊日数",
+					description: "宿泊日数を指定して検索",
+					type: "slider",
+					attr: {}
+				},
+				yado: {
+					path: "now:search:yado",
+					title: "宿タイプ",
+					description: "宿タイプを指定して検索",
+					type: "checkbox",
+					attr: {
+						yadHb: {
+							key: "yadHb",
+							label: "ホテル・ビジネスホテル",
+							value: "ホテル・ビジネスホテル"
+						},
+						yadRk: {
+							key: "yadRk",
+							label: "旅館",
+							value: "旅館"
+						},
+						yadPm: {
+							key: "yadPm",
+							label: "ペンション・民宿・ロッジ",
+							value: "ペンション・民宿・ロッジ"
+						},
+						yadKc: {
+							key: "yadKc",
+							label: "貸別荘",
+							value: "貸別荘"
+						},
+						yadKy: {
+							key: "yadKy",
+							label: "公共の宿",
+							value: "公共の宿"
+						},
+					}
+				}
+			},
+			view: {
+				path: "now:view",
+				title: "閲覧",
+			}
 		},
 		old: {
 			path: "old",
