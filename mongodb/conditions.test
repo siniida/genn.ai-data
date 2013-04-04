@@ -1,0 +1,197 @@
+{
+	site: "jalan",
+	master: {
+		test: {
+			path: "test",
+			title: "テストモジュール",
+			item: {
+				path: "test:item",
+				title: "部品チェック",
+				checkbox: {
+					path: "test:item:checkbox",
+					title: "checkbox 1",
+					description: "記号として.",
+					type: "checkbox",
+					attr: {
+						"01": {
+							key: "01",
+							label: "アイテム01",
+							value: "01"
+						},
+						"02": {
+							key: "02",
+							label: "アイテム02",
+							value: "02"
+						},
+						"03": {
+							key: "03",
+							label: "アイテム03",
+							value: "03"
+						},
+					}
+				},
+				checkboxa: {
+					path: "test:item:checkboxa",
+					title: "checkbox 2",
+					description: "文字として.",
+					type: "checkbox",
+					attr: {
+						"01": {
+							key: "01",
+							label: "アイテム01",
+							value: "アイテム01"
+						},
+						"02": {
+							key: "02",
+							label: "アイテム02",
+							value: "アイテム02"
+						},
+						"03": {
+							key: "03",
+							label: "アイテム03",
+							value: "アイテム03"
+						}
+					}
+				},
+				date: {
+					path: "test:item:date",
+					title: "date",
+					description: "date(picker) test description.",
+					type: "date",
+					attr: {
+						stayday: {
+							key: "stayday",
+							label: "宿泊日",
+							option: {
+								dateFormat: "yy/mm/dd"
+							}
+						}
+					}
+				},
+				hidden: {
+					path: "test:item:hidden",
+					title: "hidden",
+					description: "hidden test description",
+					type: "hidden",
+					attr: {
+						areacd: {
+							key: "areacd",
+							value: "aiueo"
+						}
+					}
+				},
+				radio: {
+					path: "test:item:radio",
+					title: "radio",
+					description: "値を記号で.",
+					type: "radio",
+					attr: {
+						"01": {
+							key: "01",
+							label: "北海道",
+							value: "01"
+						},
+						"02": {
+							key: "02",
+							label: "青森県",
+							value: "02"
+						},
+						"03": {
+							key: "03",
+							label: "岩手県",
+							value: "03"
+						}
+					}
+				},
+				radioa: {
+					path: "test:item:radioa",
+					title: "radio type2",
+					description: "値を文字列で.",
+					type: "radio",
+					attr: {
+						"01": {
+							key: "01",
+							label: "北海道",
+							value: "北海道"
+						},
+						"02": {
+							key: "02",
+							label: "青森県",
+							value: "青森県"
+						},
+						"03": {
+							key: "03",
+							label: "岩手県",
+							value: "岩手県"
+						}
+					}
+				},
+				slider: {
+					path: "test:item:slider",
+					title: "slider",
+					description: "slider test description.",
+					type: "slider",
+					attr: {
+						simple: {
+							key: "simple",
+							label: "宿泊日数",
+							option: {
+								min: 1,
+								max: 9,
+								value: 1
+							}
+						}
+					}
+				},
+				text: {
+					path: "test:item:text",
+					title: "text",
+					description: "text test description.",
+					type: "text",
+					attr: {
+						test: {
+							key: "test",
+							label: "入力値"
+						}
+					}
+				}
+			},
+			filter: {}
+		}
+	},
+	template: {
+		test: {
+			item: {
+				checkbox: {
+					type: "array",
+					filter: [
+						[
+							{
+								$action: "V002",
+								"#count": ["7d", {$target.region: {$in: "__REPLACE__"}}],
+								$ge: 10
+							},
+							{
+								$action: "V003",
+								"#count": ["7d", {$target.region: {$in: "__REPLACE__"}}],
+								$ge: 30
+							}
+						]
+					],
+					join: [
+						{
+							$collection: "jalan.prefecture",
+							$field: {region: "$target.region"},
+							$on: {code: "$target.kenCd"}
+						},
+						{
+							$collection: "jalan.largeArea",
+							$field: {region: "$target.region"},
+							$on: {code: "$target.lrgCd"}
+						}
+					]
+				}
+			}
+		}
+	}
+}
